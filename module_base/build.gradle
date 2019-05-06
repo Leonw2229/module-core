@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion '29.0.0 rc1'
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+
+    api project(':module_arch')
+
+    api 'androidx.appcompat:appcompat:1.1.0-alpha04'
+    // 状态栏工具 https://github.com/gyf-dev/ImmersionBar
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42'
+    api 'com.blankj:utilcodex:1.23.7'
+    testImplementation 'junit:junit:4.13-beta-2'
+    androidTestImplementation 'androidx.test:runner:1.2.0-alpha05'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha05'
+    api 'com.google.android.material:material:1.1.0-alpha06'
+    api 'com.github.xiaohaibin:XBanner:androidx_v1.0.0'
+    api 'androidx.multidex:multidex:2.0.1'
+
+    api project(':module_network')
+
+
+}

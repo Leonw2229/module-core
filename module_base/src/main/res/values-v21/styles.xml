@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- 开启后动画才不会出现什么烂掉的问题-->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowContentTransitions">true</item>
+        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
+
+        <!--activity进入动画-->
+        <item name="android:windowEnterTransition">@transition/slide_right</item>
+        <!--activity退出动画-->
+        <item name="android:windowExitTransition">@transition/slide_left</item>
+
+        <item name="android:windowSharedElementEnterTransition">@transition/slide_right</item>
+        <item name="android:windowSharedElementExitTransition">@transition/slide_left</item>
+
+    </style>
+</resources>
