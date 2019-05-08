@@ -6,12 +6,11 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='cn.madog'
-version='v1.0.0'
+group = 'cn.madog'
+version = 'v0.0.1'
 
 android {
     compileSdkVersion 28
-
 
     defaultConfig {
         minSdkVersion 16
@@ -52,4 +51,29 @@ dependencies {
     api 'com.gyf.immersionbar:immersionbar:2.3.3'
     api 'com.alibaba:arouter-api:1.4.1'
     api 'com.blankj:utilcodex:1.23.7'
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.sourceFiles
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+task classesJar(type: Jar) {
+    from "$buildDir/intermediates/classes/release"
+}
+
+artifacts {
+    archives classesJar
+    archives javadocJar
+    archives sourcesJar
 }
