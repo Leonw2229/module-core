@@ -1,2 +1,2 @@
 include ':app', ':module_network', ':module_arch', ':module_manager'
-rootProject.name = 'ModuleCore'
+rootProject.name = 'module-core'
