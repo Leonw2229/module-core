@@ -46,7 +46,7 @@ object HttpClient {
      * @param baseUrl 备用，如果没有当前Module的Retrofit实例就使用baseUrl进行初始化，
      * @param moduleName 模块的名称，不传默认为 default
      */
-    fun get(baseUrl: String, moduleName: String = "default"): Retrofit {
+    fun get(baseUrl: String, debugModel: Boolean = BuildConfig.DEBUG, moduleName: String = "default"): Retrofit {
         return if (moduleList.containsKey(moduleName)) {
             moduleList[moduleName]!!
         } else {
@@ -60,13 +60,13 @@ object HttpClient {
 
     private fun initRetrofit(baseUrl: String, moduleName: String): Retrofit {
         return HttpBuilder()
-                .baseUrl(baseUrl)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build(moduleName)
+            .baseUrl(baseUrl)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build(moduleName)
     }
 
-    fun build(builder: HttpBuilder, moduleName: String = "default"): Retrofit {
+    fun build(builder: HttpBuilder, debugModel: Boolean, moduleName: String = "default"): Retrofit {
 
         val retrofitBuilder = Retrofit.Builder()
 
@@ -75,9 +75,8 @@ object HttpClient {
             client = OkHttpClient.Builder()
         }
 
-
         if (builder.httpLoggingInterceptor == null) {
-            if (BuildConfig.DEBUG) {
+            if (debugModel) {
                 // Log信息拦截器
                 val loggingInterceptor = HttpLoggingInterceptor()
                 loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -87,7 +86,7 @@ object HttpClient {
         }
 
         builder.httpLoggingInterceptor?.apply {
-            if (BuildConfig.DEBUG) {
+            if (debugModel) {
                 client.addInterceptor(this)
             }
         }
@@ -205,6 +204,12 @@ object HttpClient {
 
         internal var moduleName: String? = null
 
+        internal var debugModel: Boolean = BuildConfig.DEBUG
+
+        fun setDebugModel(debugModel: Boolean): HttpBuilder {
+            this.debugModel = debugModel
+            return this
+        }
 
         fun authenticator(authenticator: Authenticator): HttpBuilder {
             this.authenticator = authenticator
@@ -264,7 +269,7 @@ object HttpClient {
         fun baseUrl(baseUrl: String): HttpBuilder {
 
             val httpUrl = HttpUrl.parse(baseUrl)
-                    ?: throw IllegalArgumentException("Illegal URL: $baseUrl")
+                ?: throw IllegalArgumentException("Illegal URL: $baseUrl")
             baseUrl(httpUrl)
             return this
         }
@@ -319,7 +324,7 @@ object HttpClient {
         }
 
         fun build(moduleName: String = "default"): Retrofit {
-            return HttpClient.build(this, moduleName)
+            return HttpClient.build(this, debugModel, moduleName)
         }
     }
 
