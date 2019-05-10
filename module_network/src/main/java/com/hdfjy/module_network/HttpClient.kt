@@ -50,7 +50,7 @@ object HttpClient {
         return if (moduleList.containsKey(moduleName)) {
             moduleList[moduleName]!!
         } else {
-            initRetrofit(baseUrl, moduleName)
+            initRetrofit(baseUrl,debugModel, moduleName)
         }
     }
 
@@ -58,9 +58,10 @@ object HttpClient {
         return HttpBuilder()
     }
 
-    private fun initRetrofit(baseUrl: String, moduleName: String): Retrofit {
+    private fun initRetrofit(baseUrl: String, debugModel: Boolean,moduleName: String): Retrofit {
         return HttpBuilder()
             .baseUrl(baseUrl)
+            .setDebugModel(debugModel)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build(moduleName)
