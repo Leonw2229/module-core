@@ -1,5 +1,6 @@
 # ModuleCore
 [![](https://jitpack.io/v/Leonw2229/module-core.svg)](https://jitpack.io/#Leonw2229/module-core)
+
 一个项目基础架构的简单抽象
 
 ### 1、设置jitpack仓库
