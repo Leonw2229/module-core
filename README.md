@@ -12,7 +12,7 @@ allprojects {
 ```
 ### 2、添加仓库依赖
 ```gradle
-implementation 'com.github.Leonw2229.module-core:module_arch:v0.0.1'
+implementation 'com.github.Leonw2229.module-core:module_arch:v+'
 ```
 ### 3、已包含的依赖列表
 ```gradle
