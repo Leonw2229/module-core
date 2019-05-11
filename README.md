@@ -44,12 +44,17 @@ implementation 'com.github.Leonw2229.module-core:module_manager:v+'
 
 ```json
 {
-  "moduleName": "module_xxx", // 模块名称
-  "moduleClass": "cn.madog.module_xxx.XXXApplication", //当前Module需要代理创建的Application
-  "moduleHandleRequestClass": "", // 模块对外请求的处理类，暂时无用，并未实现
-  "moduleWeight": 1 // 未实现
+  "moduleName": "module_xxx",
+  "moduleClass": "cn.madog.module_xxx.XXXApplication",
+  "moduleHandleRequestClass": "",
+  "moduleWeight": 1
 }
 ```
+- moduleName 模块名称
+- moduleClass 当前Module需要代理创建的Application
+- moduleHandleRequestClass 模块对外请求的处理类，暂时无用，并未实现
+- moduleWeight 未实现
+
 
 3、在主Module中也可以说壳Module中的Application中ModuleM初始化，别忘了初始化MainApplication到Manifest中
 
