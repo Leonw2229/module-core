@@ -14,7 +14,7 @@
 
 
 
-### 使用方式
+## 使用方式
 
 **先设置jitpack仓库**
 
@@ -28,7 +28,7 @@ allprojects {
 
 
 
-#### ModuleManager模块
+### ModuleManager模块
 
 简单的模块间解耦操作，用于组件化实施，仅仅是简单的解耦
 
@@ -92,7 +92,7 @@ class MApplication : MultiDexApplication() {
 
 
 
-#### ModuleNetwork模块
+### ModuleNetwork模块
 
 统一管理各Module中的网络请求客户端，不同的模块可单独创建自己的客户端，也可使用统一的客户端
 
@@ -110,7 +110,7 @@ private val client by lazy { HttpClient.get(AdminConstants.BASE_URL, BuildConfig
 
 
 
-#### ModuleArch模块
+### ModuleArch模块
 
 基础架构模块，内有MVP和MVVM的基础架构，MVVM不包含DataBinding，仅仅使用LiveData和ViewModel框架
 
@@ -195,7 +195,7 @@ Module里面的Repository跟MVP方式是相同的
 
 
 
-### 已包含的依赖列表
+## 已包含的依赖列表
 
 一般情况下是不会有任何影响的，implementation 方式，外部Module是访问不到的，需要使用请自行添加
 
