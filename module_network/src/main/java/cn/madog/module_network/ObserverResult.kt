@@ -1,4 +1,4 @@
-package com.hdfjy.module_network
+package cn.madog.module_network
 
 import android.util.MalformedJsonException
 import com.google.gson.JsonSyntaxException

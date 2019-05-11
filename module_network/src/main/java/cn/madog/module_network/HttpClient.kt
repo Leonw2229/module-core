@@ -1,5 +1,6 @@
-package com.hdfjy.module_network
+package cn.madog.module_network
 
+import com.hdfjy.module_network.BuildConfig
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.CallAdapter
@@ -50,7 +51,7 @@ object HttpClient {
         return if (moduleList.containsKey(moduleName)) {
             moduleList[moduleName]!!
         } else {
-            initRetrofit(baseUrl,debugModel, moduleName)
+            initRetrofit(baseUrl, debugModel, moduleName)
         }
     }
 
@@ -325,7 +326,7 @@ object HttpClient {
         }
 
         fun build(moduleName: String = "default"): Retrofit {
-            return HttpClient.build(this, debugModel, moduleName)
+            return build(this, debugModel, moduleName)
         }
     }
 
