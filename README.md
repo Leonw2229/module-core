@@ -184,8 +184,8 @@ class StudentTaskViewModel : BaseViewModel() {
                 {
                     taskHomeList.value = it.returnData
                 }, { code, message ->
-            				uiState.showError(code,message)
-        				}
+            			  uiState.showError(code,message)
+        		    }
         )
     }
 }
