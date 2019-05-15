@@ -28,11 +28,11 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
+    compileOnly 'androidx.appcompat:appcompat:1.1.0-alpha05'
     testImplementation 'junit:junit:4.13-beta-2'
     androidTestImplementation 'androidx.test:runner:1.2.0-beta01'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-beta01'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
     mavenCentral()
