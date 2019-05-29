@@ -34,7 +34,10 @@ abstract class BaseFragmentAbs: Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ImmersionBar.with(this).init()
+        try {
+            ImmersionBar.with(this).init()
+        } catch (e: Exception) {
+        }
     }
 
     override fun onDestroyView() {
