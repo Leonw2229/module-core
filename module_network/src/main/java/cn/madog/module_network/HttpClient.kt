@@ -48,7 +48,7 @@ object HttpClient {
      * @param moduleName 模块的名称，不传默认为 default
      */
     fun get(baseUrl: String, debugModel: Boolean = BuildConfig.DEBUG, moduleName: String = "default"): Retrofit {
-        return if (moduleList.containsKey(moduleName)) {
+        return if (moduleList.containsKey(moduleName) && moduleList[moduleName]?.baseUrl()?.toString() == baseUrl) {
             moduleList[moduleName]!!
         } else {
             initRetrofit(baseUrl, debugModel, moduleName)
@@ -59,7 +59,7 @@ object HttpClient {
         return HttpBuilder()
     }
 
-    private fun initRetrofit(baseUrl: String, debugModel: Boolean,moduleName: String): Retrofit {
+    private fun initRetrofit(baseUrl: String, debugModel: Boolean, moduleName: String): Retrofit {
         return HttpBuilder()
             .baseUrl(baseUrl)
             .setDebugModel(debugModel)
