@@ -16,7 +16,7 @@ import cn.madog.module_arch.ui.BaseActivity
  * @update 2019/4/3 10:30 AM
  * @version 1
  */
-open class BaseActivityMVVM : BaseActivity() {
+abstract class BaseActivityMVVM : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

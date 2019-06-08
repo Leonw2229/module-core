@@ -13,7 +13,7 @@ import cn.madog.module_arch.entity.ModelActionEvent
  * @update 2019/4/3 10:29 AM
  * @version 1
  */
-open class BaseViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel() {
     protected val uiState by lazy { UiStateResource() }
 
     /**

@@ -6,6 +6,7 @@ import cn.madog.module_arch.entity.ModelActionEvent
 import cn.madog.module_arch.entity.TipsStateEvent
 import cn.madog.module_arch.extend.toast
 import cn.madog.module_arch.ui.BaseFragment
+import cn.madog.module_arch.ui.BaseLazyFragment
 
 /**
  * @description
@@ -15,7 +16,7 @@ import cn.madog.module_arch.ui.BaseFragment
  * @update 2019/4/3 5:03 PM
  * @version 1
  */
-abstract class BaseFragmentMVVM: BaseFragment(){
+abstract class BaseLazyFragmentMVVM: BaseLazyFragment(){
 
     /**
      * 设置当前页面的ViewModel,可以调用多次，不负责保存 ViewModel实例，需自己保存，只是处理了常用的事件，比如弹框
