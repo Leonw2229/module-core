@@ -201,32 +201,45 @@ Module里面的Repository跟MVP方式是相同的
 
 ```gradle
 ##  module_arch
-implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
-implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
+    compileOnly 'androidx.appcompat:appcompat:1.0.2'
+    compileOnly 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    compileOnly 'io.reactivex.rxjava2:rxjava:2.2.10'
 
-implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-implementation 'org.jetbrains.anko:anko-commons:0.10.8'
-implementation 'androidx.core:core-ktx:1.2.0-alpha01'
-implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01'
-implementation 'com.github.lmyDevs:sweet-alert-dialog:v1.4.4'
-implementation 'com.gyf.immersionbar:immersionbar:2.3.3'
-implementation 'com.alibaba:arouter-api:1.4.1'
-implementation 'com.blankj:utilcodex:1.23.7'
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compileOnly 'org.jetbrains.anko:anko-commons:0.10.8'
+    compileOnly 'androidx.core:core-ktx:1.0.2'
+    compileOnly 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    compileOnly 'com.github.lmyDevs:sweet-alert-dialog:v1.4.4'
+    compileOnly 'com.gyf.immersionbar:immersionbar:2.3.3'
+    compileOnly 'com.alibaba:arouter-api:1.5.0'
+    compileOnly 'com.blankj:utilcodex:1.23.7'
     
 ##  module_network
-implementation 'com.google.code.gson:gson:2.8.5'
-implementation 'com.squareup.okhttp3:okhttp:3.14.1'
-implementation 'com.squareup.okhttp3:logging-interceptor:3.14.1'
-implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
-implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
-implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-implementation 'org.jetbrains.anko:anko-commons:0.10.8'
 
-implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
+    compileOnly 'com.google.code.gson:gson:2.8.5'
+    compileOnly 'com.squareup.okhttp3:okhttp:3.14.2'
+    compileOnly 'com.squareup.okhttp3:logging-interceptor:3.14.2'
+    compileOnly 'com.squareup.retrofit2:retrofit:2.6.0'
+    compileOnly 'com.squareup.retrofit2:converter-gson:2.6.0'
+    compileOnly 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
+    compileOnly 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    compileOnly 'io.reactivex.rxjava2:rxjava:2.2.10'
+    compileOnly"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compileOnly 'org.jetbrains.anko:anko-commons:0.10.8'
+
+    compileOnly 'androidx.appcompat:appcompat:1.0.2'
+    
+## common_pay
+
+    libs目录: alipaySdk-15.6.5-20190718211148.aar
+
+    compileOnly fileTree(include: ['*.jar','*.aar'], dir: 'libs')
+    compileOnly 'com.android.support:appcompat-v7:28.0.0'
+    
+    compileOnly 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.4.3'
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compileOnly 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    
 ```
 
 

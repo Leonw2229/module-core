@@ -201,23 +201,33 @@ object PayModule {
         // 必须异步调用
         val payThread = Thread {
             val aliPay = PayTask(context)
-            val result = aliPay.payV2(payInfo, true)
 
-            if (Looper.myLooper() != Looper.getMainLooper()) {
-                val mainThread = Handler(Looper.getMainLooper())
-                mainThread.post {
-                    val payResult = PayResult(result)
-                    val resultInfo = payResult.result // 同步返回需要验证的信息
-                    val resultStatus = payResult.resultStatus
+            try {
+                val result = aliPay.payV2(payInfo, true)
 
-                    val resultState = resultStatus.toInt() // 强转，可能出现错误
+                if (Looper.myLooper() != Looper.getMainLooper()) {
+                    val mainThread = Handler(Looper.getMainLooper())
+                    mainThread.post {
+                        val payResult = PayResult(result)
+                        val resultInfo = payResult.result // 同步返回需要验证的信息
+                        val resultStatus = payResult.resultStatus
 
-                    if (resultState == 6004 || resultState == 8000 || resultState == 9000) {
-                        notifyAliPayResult(context, PayAliPayListener.PAY_STATE_ALI_SUCCESS, resultInfo)
-                    } else if (resultState == 6001) {
-                        notifyAliPayResult(context, PayAliPayListener.PAY_STATE_ALI_CANCEL, resultInfo)
-                    } else {
-                        notifyAliPayResult(context, PayAliPayListener.PAY_STATE_ALI_FAILURE, resultInfo)
+                        val resultState = resultStatus.toInt() // 强转，可能出现错误
+
+                        if (resultState == 6004 || resultState == 8000 || resultState == 9000) {
+                            notifyAliPayResult(context, PayAliPayListener.PAY_STATE_ALI_SUCCESS, resultInfo)
+                        } else if (resultState == 6001) {
+                            notifyAliPayResult(context, PayAliPayListener.PAY_STATE_ALI_CANCEL, resultInfo)
+                        } else {
+                            notifyAliPayResult(context, PayAliPayListener.PAY_STATE_ALI_FAILURE, resultInfo)
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                if (Looper.myLooper() != Looper.getMainLooper()) {
+                    val mainThread = Handler(Looper.getMainLooper())
+                    mainThread.post {
+                        notifyAliPayResult(context,PayAliPayListener.PAY_STATE_ALI_RUN_ERROR)
                     }
                 }
             }
