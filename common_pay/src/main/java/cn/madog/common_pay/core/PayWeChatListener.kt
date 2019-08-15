@@ -20,6 +20,6 @@ interface PayWeChatListener {
         const val PAY_STATE_PAY_RESULT = 5
     }
 
-    abstract fun onWeChatPayResult(tag: Context, resultCode: Int, resp: BaseResp?)
+    abstract fun onWeChatPayResult(tag: Any, resultCode: Int, resp: BaseResp?)
 }
 
