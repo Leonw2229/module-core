@@ -3,7 +3,6 @@ package cn.madog.module_arch.abs
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.gyf.barlibrary.ImmersionBar
 
 /**
  * @description
@@ -17,7 +16,6 @@ abstract class BaseActivityAbs : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ImmersionBar.with(this).init()
     }
 
 
@@ -49,10 +47,6 @@ abstract class BaseActivityAbs : AppCompatActivity() {
     abstract fun releaseDialog()
 
     override fun onDestroy() {
-        try {
-            ImmersionBar.with(this).destroy()
-        } catch (e: Exception) {
-        }
         releaseDialog()
         super.onDestroy()
     }

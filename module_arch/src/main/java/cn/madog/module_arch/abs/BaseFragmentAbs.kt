@@ -3,7 +3,6 @@ package cn.madog.module_arch.abs
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.gyf.barlibrary.ImmersionBar
 
 /**
  * @description
@@ -34,17 +33,9 @@ abstract class BaseFragmentAbs: Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        try {
-            ImmersionBar.with(this).init()
-        } catch (e: Exception) {
-        }
     }
 
     override fun onDestroyView() {
-        try {
-            ImmersionBar.with(this).destroy()
-        } catch (e: Exception) {
-        }
         releaseDialog()
         super.onDestroyView()
     }

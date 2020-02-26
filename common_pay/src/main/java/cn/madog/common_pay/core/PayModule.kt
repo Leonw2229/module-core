@@ -265,6 +265,7 @@ object PayModule {
      * 删除微信回调监听
      */
     fun removeWeChatCallback(tag: Context) {
+
         if (!callbackWeChatList.containsKey(tag)) {
             LPayLog.e("removeWeChatCallback tag = $tag , does not exist ")
         } else {

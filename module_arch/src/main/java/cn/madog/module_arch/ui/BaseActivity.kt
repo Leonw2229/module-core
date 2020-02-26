@@ -3,7 +3,6 @@ package cn.madog.module_arch.ui
 import android.os.Bundle
 import cn.madog.SweetAlertDialog.SweetAlertDialog
 import cn.madog.module_arch.abs.BaseActivityAbs
-import com.gyf.barlibrary.ImmersionBar
 
 /**
  * @description
@@ -17,7 +16,6 @@ abstract class BaseActivity : BaseActivityAbs() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ImmersionBar.with(this).init()
     }
 
     override fun showWarningMessage(message: String) {
