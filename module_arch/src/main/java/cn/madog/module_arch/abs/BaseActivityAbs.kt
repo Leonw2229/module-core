@@ -1,5 +1,9 @@
 package cn.madog.module_arch.abs
 
+import android.content.Context
+import android.content.res.Configuration
+import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -27,7 +31,6 @@ abstract class BaseActivityAbs : AppCompatActivity() {
             supportFinishAfterTransition()
         }
     }
-
 
     abstract fun showWarningMessage(message: String)
 
