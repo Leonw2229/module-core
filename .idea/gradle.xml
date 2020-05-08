@@ -13,6 +13,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/common_pay" />
+            <option value="$PROJECT_DIR$/mc-core" />
+            <option value="$PROJECT_DIR$/mc-core-compiler" />
+            <option value="$PROJECT_DIR$/mc-module1" />
+            <option value="$PROJECT_DIR$/mc-moduleapp" />
             <option value="$PROJECT_DIR$/module_arch" />
             <option value="$PROJECT_DIR$/module_manager" />
             <option value="$PROJECT_DIR$/module_network" />
